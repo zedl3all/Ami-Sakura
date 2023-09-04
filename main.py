@@ -1,8 +1,7 @@
 """Bot Discord"""
 import json
-import discord
-from discord.ext import tasks
 import time
+import discord
 import genword
 
 

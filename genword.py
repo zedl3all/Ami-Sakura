@@ -6,7 +6,7 @@ def opentoken():
     """GetToken"""
     with open("token.json", "r", encoding="utf-8") as file:
         data = json.load(file)
-    return data["token"]
+    return data["tokenGenword"]
 
 def generate():
     """generate"""

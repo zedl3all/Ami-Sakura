@@ -6,3 +6,4 @@ Bots for singles. DM discord bot
 # About me ☕️
 <h3><strong> Hi >< </strong> <br></h3>
 I am rather shy and I prefer to be alone. ^_^ 
+<h1> Profile </h1>

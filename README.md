@@ -4,4 +4,4 @@
 ![](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)<br> 
 Bots for singles. DM discord bot
 # About me ☕️
-<i> Hi >< </i> <br> I am rather shy and I prefer to be alone. ^_^
+<strong> Hi >< </strong> <br> I am rather shy and I prefer to be alone. ^_^

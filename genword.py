@@ -1,10 +1,13 @@
 """generate word"""
 import json
+import time
 from bardapi import Bard
+
+start = time.time()
 
 def opentoken():
     """GetToken"""
-    with open("token.json", "r", encoding="utf-8") as file:
+    with open("Token.json", "r", encoding="utf-8") as file:
         data = json.load(file)
     return data["tokenGenword"]
 
@@ -18,3 +21,6 @@ def generate():
         extracted_word = outputcontent.split('"')[1]
         #print(extracted_word)
         return extracted_word
+end = time.time()
+print("The time of execution of above program is :",
+      (end-start) * 10**3, "ms")

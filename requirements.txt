@@ -4,3 +4,4 @@ bardapi==0.1.33
 discord.py==2.3.2
 gspread==5.1.1
 pythainlp==4.0.2
+scikit-learn==1.3.0

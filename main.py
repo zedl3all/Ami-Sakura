@@ -25,6 +25,7 @@ async def on_ready():
     #while True:
     #    await channel.send(genword.generate())
     #    time.sleep(60)
+
 @client.event
 async def on_message(message):
     """send message"""

@@ -24,5 +24,3 @@ def check(word):
     test_x = vectorize.transform([word])
     clf_svm.predict(test_x)
     print(clf_svm.predict(test_x))
-
-check(input())

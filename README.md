@@ -4,7 +4,7 @@
 ![](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)<br> 
 Bots for singles. DM discord bot
 # About me ☕️
-<div class=#FF0000><h3><strong> Hi >< </strong> <br></h3></div>
+<h3><strong> Hi >< </strong> <br></h3>
 I am rather shy and I prefer to be alone. ^_^ <br>
 <i><h1> Profile </h1></i>
 <h4> name:Ami-Sakura 🌸 <br></h4>

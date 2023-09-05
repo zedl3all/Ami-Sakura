@@ -5,5 +5,5 @@
 Bots for singles. DM discord bot
 # About me ☕️
 <h3><strong> Hi >< </strong> <br></h3><
-<font color = "red"> I am rather shy and I prefer to be alone. ^_^ </font> 
+<font color="green"> I am rather shy and I prefer to be alone. ^_^ </font>
 <i><h1> Profile </h1></i>

@@ -8,4 +8,4 @@ Bots for singles. DM discord bot
 <i> <ins> I am rather shy and I prefer to be alone. ^_^ </ins> </i>
 <i><h1> Profile </h1></i>
 <h4 style="color:red;">Ami-Sakura 🌸<br></h4>
-#### $\textcolor{magenta}{\textsf{Ami-Sakura 🌸}}$ 
+$\textcolor{magenta}{\textsf{Ami-Sakura 🌸}}$ 

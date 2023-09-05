@@ -5,6 +5,6 @@
 Bots for singles. DM discord bot
 # About me ☕️
 <h3><strong> Hi >< </strong> <br></h3>
-<p style="color:blue;">I am rather shy and I prefer to be alone. ^_^</p> <br>
+<i> <ins> I am rather shy and I prefer to be alone. ^_^ </ins> </i>
 <i><h1> Profile </h1></i>
 <h4> name:Ami-Sakura 🌸 <br></h4>

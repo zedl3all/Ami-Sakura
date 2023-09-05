@@ -9,3 +9,4 @@ Bots for singles. DM discord bot
 <i><h1> Profile </h1></i>
 <h4 style="color:red;">Ami-Sakura 🌸<br></h4>
 $\color{red}{\textsf{Ami-Sakura}}$	
+<p style="color:green"> amichan</p>

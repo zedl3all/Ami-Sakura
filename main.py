@@ -34,8 +34,8 @@ async def on_message(message):
         try:
             randomword = genword.generate()
             time.sleep(5)
-            await message.author.send(randomword)
-        except: # Ignoring exception in on_message
+            await message.author.send(embed = discord.Embed(title = randomword))
+        except discord.HTTPException: # Ignoring exception in on_message
             await message.author.send("กรุณาลองใหม่")
 
 client.run(gettoken())

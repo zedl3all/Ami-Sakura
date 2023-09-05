@@ -2,3 +2,4 @@
 
 # Ami-Sakura
 Bots for singles.
+DM discord bot

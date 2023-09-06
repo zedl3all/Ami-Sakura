@@ -1,10 +1,21 @@
-![00033-250665715](https://github.com/zedl3all/Ami-Sakura/assets/72595491/f1bc54b4-fdd0-4ac4-904a-9d67db02281c)
+<!DOCTYPE html>
+<html>
 
-# Ami-Sakura 
-![](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)<br> 
-Bots for singles. DM discord bot
-# About me ☕️
-<h3><strong> Hi >< </strong> <br></h3>
-<i> <ins> <tr bgcolor="#FF99CC"> I am rather shy and I prefer to be alone. ^_^ </tr> </ins> </i>
-<h1> Profile 🐧</h1>
-<h4>🌸 Ami-Sakura 🌸</h4>
+
+<head>
+    <title>My Stacla</title>
+</head>
+
+
+<body>
+    <img src="c:\Users\User\Desktop\IT WORK\ENG\351806_0.jpg" width="10%" >
+    <h2><b>MY LIFE</b></h2>
+    <p><em>NAME: STACLA</em></p>
+    <p>AGE: 19</p>
+    <p><ins>MY FAVOURITE ANIME: SPY X FAMILY</ins></p>
+    <h2>MY STEAM PROFILE</h2> 
+    <a href="https://steamcommunity.com/id/0649515415/">CICK THIS!!!</a>
+    <p style="color:deepskyblue">love anime!!</p>
+</body>
+
+</html>

@@ -5,7 +5,7 @@ from sklearn import svm
 
 def getdata():
     """GetToken"""
-    with open('Alcheckgb2.json', "r", encoding="utf-8") as file:
+    with open('AIcheckgb2.json', "r", encoding="utf-8") as file:
         Data = json.load(file)
         train_x = Data["Text"]
         train_y = Data["Check"]

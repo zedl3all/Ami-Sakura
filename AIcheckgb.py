@@ -22,5 +22,11 @@ def check(word):
     clf_svm.fit(Train_X_Vectors, Train_Y)
 
     test_x = vectorize.transform([word])
-    clf_svm.predict(test_x)
-    print(clf_svm.predict(test_x))
+    output = clf_svm.predict(test_x)
+    score = 0
+    if output == "Good":
+        score = 1
+    elif output == "Bad":
+        score = -5
+    return score
+    #print(clf_svm.predict(test_x))

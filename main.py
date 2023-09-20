@@ -5,6 +5,7 @@ import discord
 import genword
 import viewlog
 import LinkDataBase
+import AIcheckgb
 from discord.ext import commands
 
 @viewlog.log_return_value
@@ -35,28 +36,33 @@ async def on_ready():
 async def on_message(message):
     """send message"""
     global messagesend
+    user_id = message.author.id
     if message.author == client.user:
         return
     if message.content == '!play' or message.content == '!p':
-        try:
-            randomword = genword.generate()
-            time.sleep(5)
-            await message.author.send(embed = discord.Embed(title = randomword))
-            messagesend = True
-        except discord.HTTPException: # Ignoring exception in on_message
-            await message.author.send("กรุณาลองใหม่")
+        if LinkDataBase.check_data(user_id) is False:
+            
+            await message.author.send("กรุณาสร้าง data ก่อน !create เพื่อสร้าง")
+        else:
+            try:
+                randomword = genword.generate()
+                time.sleep(5)
+                await message.author.send(embed = discord.Embed(title = randomword))
+                messagesend = True
+            except discord.HTTPException: # Ignoring exception in on_message
+                await message.author.send("กรุณาลองใหม่")
     if messagesend is True:
         if '!say' in message.content:
             text_to_say = message.content.replace('!say ', '')
-            await message.author.send(text_to_say+" "+"ขอบคุณที่ตอบค่ะ")
+            LinkDataBase.update_like_data(user_id, AIcheckgb.check(text_to_say))
+            await message.author.send("ขอบคุณที่ตอบค่ะ")
             messagesend = False
     if message.content == '!create':
-        user_id = message.author.id
         if not message.author.bot:
             if LinkDataBase.check_data(user_id) is True:
-                await message.author.send("คุณมีรหัสอยู่แล้ว")
+                await message.author.send("คุณมี Data อยู่แล้ว")
             else:
                 LinkDataBase.add_data(user_id)
-                await message.author.send("คุณได้สร้างรหัสแล้ว")
+                await message.author.send("คุณได้สร้าง Data แล้ว")
 
 client.run(gettoken())

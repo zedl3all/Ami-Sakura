@@ -29,3 +29,17 @@ def check_data(userid):
         return False
         #print("you have id")
     #print(worksheet.col_values(1))
+
+@viewlog.log_return_value
+def update_like_data(userid, likevalue):
+    """update like data"""
+    gsaccount = gspread.service_account("botdiscord-it-21-dcf1ea9eb41f.json")
+    sheet = gsaccount.open("Data_Bot")
+    worksheet = sheet.worksheet("Data")
+    if str(userid) in worksheet.col_values(1):
+        userrow = worksheet.col_values(1).index(str(userid))
+        userrow = userrow+1
+        likedata = worksheet.row_values(userrow)[1]
+        worksheet.update_cell(userrow, 2, str(int(likevalue)+int(likedata)))
+
+#update_like_data(str(415728832574914562),1)

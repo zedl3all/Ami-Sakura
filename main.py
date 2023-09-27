@@ -29,12 +29,12 @@ async def slow_count():
             if int(LD.get_time(user_id)[:2]) < int(datetime.now().hour):
                 user = await client.fetch_user(user_id)
                 if LD.check_data(user_id) is False:
-                    await user.send("กรุณาสร้าง data ก่อน !create เพื่อสร้าง")
+                    await user.send("กรุณาสร้าง data ก่อน !Create เพื่อสร้าง")
                 else:
                     try:
                         randomword = genword.generate()
                         time.sleep(5)
-                        await user.send(embed = discord.Embed(title = randomword))
+                        await user.send(embed = discord.Embed(title = randomword, color = 0xeea3f9))
                         LD.update_waiting_message(user_id, True)
                         LD.update_time(user_id, datetime.now())
                     except discord.HTTPException: # Ignoring exception in on_message
@@ -58,21 +58,29 @@ async def on_message(message):
     user_id = message.author.id
     if message.author == client.user:
         return
-    if message.content == '!play' or message.content == '!p':
+    if message.content.lower() == '!start' or message.content == '!s':
         LD.update_active(user_id, True)
         LD.update_time(user_id, datetime.now())
-        await message.author.send("ได้เวลาอยากคุยแล้ว! :wink:")
-    if message.content == '!stop' or message.content == '!s':
+        await message.author.send(embed = discord.Embed(title = "ได้เวลาอยากคุยแล้ว! :pleading_face:", color = 0xeea3f9, description="อยากคุยเร็วๆจัง").set_thumbnail(url = r"https://user-images.githubusercontent.com/72595491/265518708-f1bc54b4-fdd0-4ac4-904a-9d67db02281c.png"))
+        try:
+            randomword = genword.generate()
+            time.sleep(5)
+            await message.author.send(embed = discord.Embed(title = randomword, color = 0xeea3f9))
+            LD.update_waiting_message(user_id, True)
+            LD.update_time(user_id, datetime.now())
+        except discord.HTTPException: # Ignoring exception in on_message
+            await message.author.send("ขอเวลาแปป")
+    if message.content.lower() == '!end' or message.content == '!e':
         LD.update_active(user_id, False)
         LD.update_waiting_message(user_id, False)
-        await message.author.send("บายยยยย :face_holding_back_tears:")
+        await message.author.send(embed = discord.Embed(title = "บายยยยย :face_holding_back_tears:", color = 0xeea3f9))
     if LD.get_waiting_message(user_id) is True:
-        if '!say' in message.content:
+        if '!reply' in message.content.lower():
             text_to_say = message.content.replace('!say ', '')
             LD.update_like_data(user_id, AIcheckgb.check(text_to_say))
             await message.author.send("ขอบคุณที่ตอบค่ะ")
             LD.update_waiting_message(user_id, False)
-    if message.content == '!create':
+    if message.content.lower() == '!create':
         if not message.author.bot:
             if LD.check_data(user_id) is True:
                 await message.author.send("คุณมี Data อยู่แล้ว")

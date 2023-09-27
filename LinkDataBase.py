@@ -12,7 +12,7 @@ def add_data(userid):
     """add_data"""
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
-    new_data = [str(userid), 0, 0, current_time, False, False]
+    new_data = [str(userid), 0, "", current_time, False, False]
     last_row_number = len(worksheet.col_values(1)) + 1
     for i, value in enumerate(new_data):
         worksheet.update_cell(last_row_number, i + 1, value)
@@ -46,7 +46,7 @@ def get_time(userid):
         userrow = worksheet.col_values(1).index(str(userid))
         userrow = userrow + 1
         latest_time = worksheet.row_values(userrow)[3]
-        print(latest_time)
+        #print(latest_time)
         return latest_time
 
 #get_time(307804872408039424)#use for get time data
@@ -58,8 +58,11 @@ def get_active(userid):
         userrow = worksheet.col_values(1).index(str(userid))
         userrow = userrow + 1
         active = worksheet.row_values(userrow)[4]
-        print(active)
-        return active
+        #print(active)
+        if active == "TRUE":
+            return True
+        else:
+            return False
 
 #get_active(307804872408039424)#use for get active data
 
@@ -70,8 +73,11 @@ def get_waiting_message(userid):
         userrow = worksheet.col_values(1).index(str(userid))
         userrow = userrow + 1
         waiting = worksheet.row_values(userrow)[5]
-        print(waiting)
-        return waiting
+        #print(waiting)
+        if waiting == "TRUE":
+            return True
+        else:
+            return False
 
 #waiting_message(307804872408039424)#use for get waiting_message
 
@@ -87,7 +93,7 @@ def update_time(userid, value):
 
 @viewlog.log_return_value
 def update_active(userid, value):
-    """get active"""
+    """update active"""
     if str(userid) in worksheet.col_values(1):
         userrow = worksheet.col_values(1).index(str(userid))
         userrow = userrow + 1
@@ -97,10 +103,29 @@ def update_active(userid, value):
 
 @viewlog.log_return_value
 def update_waiting_message(userid, value):
-    """get active"""
+    """update waiting_message"""
     if str(userid) in worksheet.col_values(1):
         userrow = worksheet.col_values(1).index(str(userid))
         userrow = userrow + 1
         worksheet.update_cell(userrow, 6, bool(value))
 
 #update_waiting_message(307804872408039424, True)#use for update waiting_message
+
+@viewlog.log_return_value
+def get_userid_by_online():
+    """get_userid_by_online"""
+    if "TRUE" in worksheet.col_values(5):
+        #print(worksheet.col_values(5))
+        index_true = []
+        for index, value in enumerate(worksheet.col_values(5)):
+            if value == "TRUE":
+                index_true.append(index)
+        #print(index_true)
+        userrow = worksheet.col_values(1)
+        index_userid = []
+        for i in index_true:
+            index_userid.append(userrow[i])
+        #print(index_userid)
+        return index_userid
+
+#get_userid_by_online()#use for get userid by Online [list]

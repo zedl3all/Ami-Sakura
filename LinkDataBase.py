@@ -12,7 +12,7 @@ def add_data(userid):
     """add_data"""
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
-    new_data = [str(userid), 0, 0, current_time, False]
+    new_data = [str(userid), 0, 0, current_time, False, False]
     last_row_number = len(worksheet.col_values(1)) + 1
     for i, value in enumerate(new_data):
         worksheet.update_cell(last_row_number, i + 1, value)
@@ -62,3 +62,45 @@ def get_active(userid):
         return active
 
 #get_active(307804872408039424)#use for get active data
+
+@viewlog.log_return_value
+def get_waiting_message(userid):
+    """get active"""
+    if str(userid) in worksheet.col_values(1):
+        userrow = worksheet.col_values(1).index(str(userid))
+        userrow = userrow + 1
+        waiting = worksheet.row_values(userrow)[5]
+        print(waiting)
+        return waiting
+
+#waiting_message(307804872408039424)#use for get waiting_message
+
+@viewlog.log_return_value
+def update_time(userid, value):
+    """get time"""
+    if str(userid) in worksheet.col_values(1):
+        userrow = worksheet.col_values(1).index(str(userid))
+        userrow = userrow + 1
+        worksheet.update_cell(userrow, 4, value.strftime("%H:%M:%S"))
+
+#update_time(307804872408039424, datetime.now())#use for update time data
+
+@viewlog.log_return_value
+def update_active(userid, value):
+    """get active"""
+    if str(userid) in worksheet.col_values(1):
+        userrow = worksheet.col_values(1).index(str(userid))
+        userrow = userrow + 1
+        worksheet.update_cell(userrow, 5, bool(value))
+
+#update_active(307804872408039424, True)#use for update active data
+
+@viewlog.log_return_value
+def update_waiting_message(userid, value):
+    """get active"""
+    if str(userid) in worksheet.col_values(1):
+        userrow = worksheet.col_values(1).index(str(userid))
+        userrow = userrow + 1
+        worksheet.update_cell(userrow, 6, bool(value))
+
+#update_waiting_message(307804872408039424, True)#use for update waiting_message

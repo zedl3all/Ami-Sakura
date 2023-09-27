@@ -3,12 +3,13 @@ from datetime import datetime
 import gspread
 import viewlog
 
+gsaccount = gspread.service_account("botdiscord-it-21-dcf1ea9eb41f.json")
+sheet = gsaccount.open("Data_Bot")
+worksheet = sheet.worksheet("Data")
+
 @viewlog.log_return_value
 def add_data(userid):
     """add_data"""
-    gsaccount = gspread.service_account("botdiscord-it-21-dcf1ea9eb41f.json")
-    sheet = gsaccount.open("Data_Bot")
-    worksheet = sheet.worksheet("Data")
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     new_data = [str(userid), 0, 0, current_time, False]
@@ -20,9 +21,6 @@ def add_data(userid):
 @viewlog.log_return_value
 def check_data(userid):
     """checkdata"""
-    gsaccount = gspread.service_account("botdiscord-it-21-dcf1ea9eb41f.json")
-    sheet = gsaccount.open("Data_Bot")
-    worksheet = sheet.worksheet("Data")
     if str(userid) in worksheet.col_values(1):
         return True
     else:
@@ -33,13 +31,34 @@ def check_data(userid):
 @viewlog.log_return_value
 def update_like_data(userid, likevalue):
     """update like data"""
-    gsaccount = gspread.service_account("botdiscord-it-21-dcf1ea9eb41f.json")
-    sheet = gsaccount.open("Data_Bot")
-    worksheet = sheet.worksheet("Data")
     if str(userid) in worksheet.col_values(1):
         userrow = worksheet.col_values(1).index(str(userid))
-        userrow = userrow+1
+        userrow = userrow + 1
         likedata = worksheet.row_values(userrow)[1]
         worksheet.update_cell(userrow, 2, str(int(likevalue)+int(likedata)))
 
-#update_like_data(str(415728832574914562),1)
+#update_like_data(str(415728832574914562),1) #use for test add data
+
+@viewlog.log_return_value
+def get_time(userid):
+    """get time"""
+    if str(userid) in worksheet.col_values(1):
+        userrow = worksheet.col_values(1).index(str(userid))
+        userrow = userrow + 1
+        latest_time = worksheet.row_values(userrow)[3]
+        print(latest_time)
+        return latest_time
+
+#get_time(307804872408039424)#use for get time data
+
+@viewlog.log_return_value
+def get_active(userid):
+    """get active"""
+    if str(userid) in worksheet.col_values(1):
+        userrow = worksheet.col_values(1).index(str(userid))
+        userrow = userrow + 1
+        active = worksheet.row_values(userrow)[4]
+        print(active)
+        return active
+
+#get_active(307804872408039424)#use for get active data

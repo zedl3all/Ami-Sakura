@@ -17,8 +17,6 @@ def gettoken():
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
-tree = discord.app_commands.CommandTree(client)
-channel_id = 1148255715937505360
 messagesend = False
 
 @viewlog.log_return_value
@@ -26,10 +24,8 @@ messagesend = False
 async def on_ready():
     """Start Bot"""
     print(f'{client.user} has connected to Discord!')
-    #channel = client.get_channel(channel_id)
     user = await client.fetch_user(307804872408039424)
     await user.send("Bot is Online")
-    #await channel.send("Bot is Online")
 
 @viewlog.log_return_value
 @client.event
@@ -41,7 +37,6 @@ async def on_message(message):
         return
     if message.content == '!play' or message.content == '!p':
         if LinkDataBase.check_data(user_id) is False:
-            
             await message.author.send("กรุณาสร้าง data ก่อน !create เพื่อสร้าง")
         else:
             try:

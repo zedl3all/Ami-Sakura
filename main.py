@@ -8,6 +8,7 @@ import genword
 import viewlog
 import LinkDataBase as LD
 import AIcheckgb
+import AIcheckgb2
 
 
 @viewlog.log_return_value
@@ -32,6 +33,7 @@ async def slow_count():
                     await user.send("กรุณาสร้าง data ก่อน !Create เพื่อสร้าง")
                 else:
                     try:
+                        global randomword
                         randomword = genword.generate()
                         time.sleep(5)
                         await user.send(embed = discord.Embed(title = randomword, color = 0xeea3f9))
@@ -63,6 +65,7 @@ async def on_message(message):
         LD.update_time(user_id, datetime.now())
         await message.author.send(embed = discord.Embed(title = "ได้เวลาอยากคุยแล้ว! :pleading_face:", color = 0xeea3f9, description="อยากคุยเร็วๆจัง").set_thumbnail(url = r"https://user-images.githubusercontent.com/72595491/265518708-f1bc54b4-fdd0-4ac4-904a-9d67db02281c.png"))
         try:
+            global randomword
             randomword = genword.generate()
             time.sleep(5)
             await message.author.send(embed = discord.Embed(title = randomword, color = 0xeea3f9))
@@ -77,6 +80,12 @@ async def on_message(message):
     if LD.get_waiting_message(user_id) is True:
         if '!reply' in message.content.lower():
             text_to_say = message.content.replace('!say ', '')
+            if AIcheckgb2.check2(randomword) == AIcheckgb2.check2((text_to_say)):
+                LD.update_like_data(user_id, 1)
+            elif AIcheckgb2.check2(text_to_say) == "tell":
+                LD.update_like_data(user_id, 1)
+            else:
+                LD.update_like_data(user_id, -5)
             LD.update_like_data(user_id, AIcheckgb.check(text_to_say))
             await message.author.send("ขอบคุณที่ตอบค่ะ")
             LD.update_waiting_message(user_id, False)

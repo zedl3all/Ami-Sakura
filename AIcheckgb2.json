@@ -38,7 +38,7 @@
 , "what", "tell", "tell", "tell", "what", "tell", "tell", "what", "tell", "what", "tell", "what", "tell", "what", "tell", "tell"
 , "tell", "what", "tell", "what", "tell", "tell", "what", "tell", "what", "tell", "tell", "tell", "tell", "tell", "tell", "tell"
 ,"tell", "tell", "tell", "tell", "why", "tell", "why", "tell", "why", "tell", "why", "tell", "tell", "tell", "why", "tell", "why", "tell"
-, "why", "tell", "why", "tell", "why", "tell", "why", "tell", "why", "tell", "why", "tell", "why", "tell", "tell"
-, "why", "tell", "tell", "tell", "why", "why", "when", "tell", "when", "tell", "when", "tell", "tell", "when", "tell", "when", "tell"
-, "when", "tell", "when", "tell", "when", "tell", "tell", "when", "tell", "when", "tell", ]
+, "why", "tell", "why", "tell", "why", "tell", "why", "tell", "why", "tell", "why", "tell", "tell", "why", "tell", "tell", "tell"
+, "why", "why", "why", "why", "why", "when", "when", "when", "when", "when", "when", "when", "when", "when", "what", "tell", "tell"
+, "when", "when", "where", "where", "when", "when", "when", "when", "when", "when", "when", "when", "when", "when", "when"]
 }

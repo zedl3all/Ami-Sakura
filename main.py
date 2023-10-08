@@ -20,6 +20,7 @@ def gettoken():
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
+randomword = ""
 
 @tasks.loop(seconds=30)
 async def slow_count():
@@ -79,7 +80,7 @@ async def on_message(message):
         await message.author.send(embed = discord.Embed(title = "บายยยยย :face_holding_back_tears:", color = 0xeea3f9))
     if LD.get_waiting_message(user_id) is True:
         if '!reply' in message.content.lower():
-            text_to_say = message.content.replace('!say ', '')
+            text_to_say = message.content.replace('!reply ', '')
             if AIcheckgb2.check2(randomword) == AIcheckgb2.check2((text_to_say)):
                 LD.update_like_data(user_id, 1)
             elif AIcheckgb2.check2(text_to_say) == "tell":

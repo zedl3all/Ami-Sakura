@@ -24,3 +24,4 @@ def check2(word):
     test_x = vectorize.transform([word])
     clf_svm.predict(test_x)
     print(clf_svm.predict(test_x))
+check2("สวัสดี")

@@ -22,6 +22,5 @@ def check2(word):
     clf_svm.fit(Train_X_Vectors, Train_Y)
 
     test_x = vectorize.transform([word])
-    clf_svm.predict(test_x)
-    print(clf_svm.predict(test_x))
-check2("สวัสดี")
+    output = clf_svm.predict(test_x)
+    return output

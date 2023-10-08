@@ -2,7 +2,9 @@
 import json
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn import svm
+import viewlog
 
+@viewlog.log_return_value
 def getdata():
     """GetToken"""
     with open('AIcheckgb2.json', "r", encoding="utf-8") as file:
@@ -11,6 +13,7 @@ def getdata():
         train_y = Data["Check"]
     return train_x, train_y
 
+@viewlog.log_return_value
 def check2(word):
     """check word"""
     Train_X = getdata()[0]

@@ -23,10 +23,11 @@ def check(word):
 
     test_x = vectorize.transform([word])
     output = clf_svm.predict(test_x)
+    print(output)
     score = 0
     if output == "Good":
         score = 1
     elif output == "Bad":
         score = -5
     return score
-    #print(clf_svm.predict(test_x))
+#check("สวัสดี")

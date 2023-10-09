@@ -6,7 +6,8 @@
     "อ่า", "อืม", "Ok", "กินข้าวยัง", "โย่วๆ", "โย่วว", "อยากเจอเธอจัง", "รับทราบ", "yep", "เห้ย", "อ่าว", "อยากอยู่ใก้ลเธอ", "เธอสวย", "ชอบนะ", "เธอเป็นคนดีมาก", 
     "ขี้เกียจ", "คนไม่ดี", "เธอมันแย่", "วันนี้โอเคไหม", "วันนี้เป็นไงบ้าง", "ได้เลย", "เธอเป็นคนพิเศษ", "พิเศษ", "No", "Noๆ", "ว่างมั้ย", "ไม่", "ไม่ได่", "อยากคุยกับเธอ", 
     "เรื่องของมึง", "อะไรเนี่ย", "หืม", "โอ้ว", "ว้าว", "Wow", "งอนและ", "สุดยอด", "เยี่ยม", "ไม่แย่นะ", "ใช้ได้", "ไปเที่ยวกันป่าว", "ไปเที่ยวกันไหม", "ไปหาได้ไหม",
-    "ควย", "เหมือนกัน", "ชิบหาย", "แล้วแต่เธอ", "เรื่องมากว่ะ", "ไม่เป็นไร", "ใช่", "ไม่ใช่", "ช้ามาก", "สบายดีไหม", "น่ารังเกียจ", "ไปให้พ้น", "เหนื่อยหน่อยนะ"],
+    "ควย", "เหมือนกัน", "ชิบหาย", "แล้วแต่เธอ", "เรื่องมากว่ะ", "ไม่เป็นไร", "ใช่", "ไม่ใช่", "ช้ามาก", "สบายดีไหม", "น่ารังเกียจ", "ไปให้พ้น", "เหนื่อยหน่อยนะ",
+    "ไม่มีอะไร"],
     "Check":["Bad", "Good", "Bad", "Good", "Normal", "Normal", "Normal", "Normal", "Bad", "Good", "Good",
     "Good", "Normal", "Bad", "Good", "Normal", "Normal", "Normal", "Normal", "Good", "Good", "Bad", "Bad", "Bad", "Bad", 
     "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Bad", "Normal", 
@@ -14,5 +15,6 @@
     "Normal", "Normal", "Normal", "Normal", "Normal", "Normal", "Good", "Normal", "Normal", "Bad", "Normal", "Good", "Good", "Good", "Good", 
     "Bad", "Bad", "Bad", "Good", "Good", "Normal", "Good", "Normal", "Normal", "Normal", "Normal", "Normal", "Normal", "Good", 
     "Bad", "Bad", "Normal", "Normal", "Normal", "Normal", "Normal", "Good", "Good", "Normal", "Normal", "Good", "Good", "Normal",
-    "Bad", "Normal", "Bad", "Normal", "Bad", "Normal", "Normal", "Normal", "Bad", "Good", "Bad", "Bad", "Good"]
+    "Bad", "Normal", "Bad", "Normal", "Bad", "Normal", "Normal", "Normal", "Bad", "Good", "Bad", "Bad", "Good",
+    "Normal"]
 }

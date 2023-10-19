@@ -26,4 +26,5 @@ def check2(word):
 
     test_x = vectorize.transform([word])
     output = clf_svm.predict(test_x)
+    print(output)
     return output

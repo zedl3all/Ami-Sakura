@@ -97,5 +97,9 @@ async def on_message(message):
             else:
                 LD.add_data(user_id)
                 await message.author.send("คุณได้สร้าง Data แล้ว")
+    if message.content.lower() == '!help':
+        if not message.author.bot:
+            await message.author.send(embed = discord.Embed(title = ":no_entry: วิธีการใช้งาน :no_entry:", color = 0xeea3f9, description="!Create: To set up your profile.\n !Start: Begin a chat with me.\n !Reply: Use to answer my questions.\n Ex: !Reply Hello\n !End: To stop chatting with me.\n If you're active, I'll chat with you every hour ♥️.\n").set_thumbnail(url = r"https://user-images.githubusercontent.com/72595491/265518708-f1bc54b4-fdd0-4ac4-904a-9d67db02281c.png"))
+
 
 client.run(gettoken())

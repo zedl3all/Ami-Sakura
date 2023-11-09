@@ -129,3 +129,16 @@ def get_userid_by_online():
         return index_userid
 
 #get_userid_by_online()#use for get userid by Online [list]
+
+@viewlog.log_return_value
+def get_level_like(userid):
+    """get level and like"""
+    if str(userid) in worksheet.col_values(1):
+        userrow = worksheet.col_values(1).index(str(userid))
+        userrow = userrow + 1
+        level = worksheet.row_values(userrow)[2]
+        like = worksheet.row_values(userrow)[1]
+        #print(level, like)
+        return level, like
+
+#get_level_like(307804872408039424)#use for get level and like data

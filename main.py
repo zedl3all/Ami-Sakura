@@ -30,11 +30,11 @@ async def slow_count():
             #print(user_id)
             if int(LD.get_time(user_id)[:2]) < int(datetime.now().hour):
                 user = await client.fetch_user(user_id)
-                if LD.get_waiting_message(user_id) is True:
-                    LD.update_like_data(user_id, -10)
                 if LD.check_data(user_id) is False:
                     await user.send("กรุณาสร้าง data ก่อน !Create เพื่อสร้าง")
                 else:
+                    if LD.get_waiting_message(user_id) is True:
+                        LD.update_like_data(user_id, -10)
                     try:
                         global randomword
                         randomword = genword.generate()

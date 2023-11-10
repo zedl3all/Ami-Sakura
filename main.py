@@ -79,9 +79,12 @@ async def on_message(message):
                 await message.author.send("ขอเวลาแปป")
     ###end command###
     if message.content.lower() == '!end' or message.content == '!e':
-        LD.update_active(user_id, False)
-        LD.update_waiting_message(user_id, False)
-        await message.author.send(embed = discord.Embed(title = "บายยยยย :face_holding_back_tears:", color = 0xeea3f9))
+        if LD.check_data(user_id) is False:
+            await message.author.send("กรุณาสร้าง data ก่อน !Create เพื่อสร้าง")
+        else:
+            LD.update_active(user_id, False)
+            LD.update_waiting_message(user_id, False)
+            await message.author.send(embed = discord.Embed(title = "บายยยยย :face_holding_back_tears:", color = 0xeea3f9))
     ###reply command###
     if LD.get_waiting_message(user_id) is True:
         if '!reply' in message.content.lower():

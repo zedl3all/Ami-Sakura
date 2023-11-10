@@ -30,20 +30,18 @@ async def slow_count():
             #print(user_id)
             if int(LD.get_time(user_id)[:2]) < int(datetime.now().hour):
                 user = await client.fetch_user(user_id)
-                if LD.check_data(user_id) is False:
-                    await user.send("กรุณาสร้าง data ก่อน !Create เพื่อสร้าง")
-                else:
-                    if LD.get_waiting_message(user_id) is True:
-                        LD.update_like_data(user_id, -10)
-                    try:
-                        global randomword
-                        randomword = genword.generate()
-                        time.sleep(5)
-                        await user.send(embed = discord.Embed(title = randomword, color = 0xeea3f9))
-                        LD.update_waiting_message(user_id, True)
-                        LD.update_time(user_id, datetime.now())
-                    except discord.HTTPException: # Ignoring exception in on_message
-                        await user.send("ขอเวลาแปป")
+                if LD.get_waiting_message(user_id) is True:
+                    LD.update_like_data(user_id, -10)
+                try:
+                    global randomword
+                    randomword = genword.generate()
+                    time.sleep(5)
+                    await user.send(embed = discord.Embed(title = randomword, color = 0xeea3f9))
+                    LD.update_waiting_message(user_id, True)
+                    LD.update_time(user_id, datetime.now())
+                except discord.HTTPException: # Ignoring exception in on_message
+                    await user.send("ขอเวลาแปป")
+            time.sleep(5)
     print("Check")
 
 @viewlog.log_return_value
@@ -65,18 +63,20 @@ async def on_message(message):
         return
     ###play command###
     if message.content.lower() == '!start' or message.content == '!s':
-        LD.update_active(user_id, True)
-        LD.update_time(user_id, datetime.now())
-        await message.author.send(embed = discord.Embed(title = "ได้เวลาอยากคุยแล้ว! :pleading_face:", color = 0xeea3f9, description="อยากคุยเร็วๆจัง").set_thumbnail(url = r"https://user-images.githubusercontent.com/72595491/265518708-f1bc54b4-fdd0-4ac4-904a-9d67db02281c.png"))
-        try:
-            global randomword
-            randomword = genword.generate()
-            time.sleep(5)
-            await message.author.send(embed = discord.Embed(title = randomword, color = 0xeea3f9))
-            LD.update_waiting_message(user_id, True)
-            LD.update_time(user_id, datetime.now())
-        except discord.HTTPException: # Ignoring exception in on_message
-            await message.author.send("ขอเวลาแปป")
+        if LD.check_data(user_id) is False:
+            await message.author.send("กรุณาสร้าง data ก่อน !Create เพื่อสร้าง")
+        else:
+            LD.update_active(user_id, True)
+            await message.author.send(embed = discord.Embed(title = "ได้เวลาอยากคุยแล้ว! :pleading_face:", color = 0xeea3f9, description="อยากคุยเร็วๆจัง").set_thumbnail(url = r"https://user-images.githubusercontent.com/72595491/265518708-f1bc54b4-fdd0-4ac4-904a-9d67db02281c.png"))
+            try:
+                global randomword
+                randomword = genword.generate()
+                time.sleep(5)
+                await message.author.send(embed = discord.Embed(title = randomword, color = 0xeea3f9))
+                LD.update_waiting_message(user_id, True)
+                LD.update_time(user_id, datetime.now())
+            except discord.HTTPException: # Ignoring exception in on_message
+                await message.author.send("ขอเวลาแปป")
     ###end command###
     if message.content.lower() == '!end' or message.content == '!e':
         LD.update_active(user_id, False)
